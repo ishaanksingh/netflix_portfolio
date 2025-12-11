@@ -1,38 +1,91 @@
+/* Fullscreen black background */
 .netflix-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #141414;
   overflow: hidden;
+  cursor: pointer;
 }
 
-.netflix-logo {
-  width: 500px;
-  height: auto;
+/* Soft red glow behind logo once clicked */
+.netflix-container.clicked::before {
+  content: "";
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle at center, rgba(229, 9, 20, 0.4), transparent 65%);
   opacity: 0;
-  transform: scale(0.8);
-  animation: fadeIn 0.5s forwards ease-in;
+  animation: ishflix-glow 4s ease-in-out forwards;
+  pointer-events: none;
 }
 
-@keyframes fadeIn {
-  to {
+/* Base logo styling */
+.netflix-logo {
+  position: relative;
+  width: 40vw;
+  max-width: 520px;
+  min-width: 260px;
+  opacity: 1;
+  transform: scale(1);
+  image-rendering: auto;
+}
+
+/* When clicked, run the intro animation */
+.netflix-logo.animate {
+  animation: ishflix-intro 4s ease-in-out forwards;
+}
+
+/* Zoom + blur + fade animation (similar to Netflix intro) */
+@keyframes ishflix-intro {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(6px)
+      drop-shadow(0 0 40px rgba(229, 9, 20, 0.9));
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px)
+      drop-shadow(0 0 40px rgba(229, 9, 20, 0.9));
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.2);
+    filter: blur(1px)
+      drop-shadow(0 0 60px rgba(229, 9, 20, 0.8));
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+    filter: blur(10px)
+      drop-shadow(0 0 80px rgba(229, 9, 20, 0.6));
+  }
+}
+
+/* Matching glow behind logo */
+@keyframes ishflix-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  20% {
     opacity: 1;
     transform: scale(1);
   }
-}
-
-.animate.netflix-logo {
-  animation: zoomOut 3s forwards ease-in-out;
-}
-
-@keyframes zoomOut {
-  0%, 80% {
-    transform: scale(0.8);
+  70% {
     opacity: 1;
+    transform: scale(1.2);
   }
   100% {
-    transform: scale(3);
     opacity: 0;
+    transform: scale(1.8);
   }
 }

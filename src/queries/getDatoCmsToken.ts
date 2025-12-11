@@ -1,28 +1,13 @@
-// getDatoCmsToken.ts
+// Temporary simple version just so the app does not crash without DatoCMS.
+//
+// In the original project this picked a token based on hostname
+// and threw an error if none was configured. That breaks in Codespaces,
+// so we just return a dummy token instead.
 
-export const getDatoCmsToken = (): string => {
-  const hostname = window.location.hostname;
-
-  switch (hostname) {
-    case 'ror.sumanthsamala.com':
-    case 'sumanthsamala.com':
-    case 'ror.localhost':
-    case 'localhost':
-      return process.env.REACT_APP_DATOCMS_ROR_TOKEN ?? '';
-
-    case 'java.sumanthsamala.com':
-    case 'java.localhost':
-      return process.env.REACT_APP_DATOCMS_JAVA_TOKEN ?? '';
-
-    case 'frontend.sumanthsamala.com':
-    case 'frontend.localhost':
-      return process.env.REACT_APP_DATOCMS_FRONTEND_TOKEN ?? '';
-
-    case 'node.sumanthsamala.com':
-    case 'node.localhost':
-      return process.env.REACT_APP_DATOCMS_NODE_TOKEN ?? '';
-
-    default:
-      throw new Error(`No DatoCMS token configured for hostname: ${hostname}`);
-  }
+const getDatoCmsToken = () => {
+  // If you ever add a real token, you can put it in an env variable and read it here.
+  return '';
 };
+
+export default getDatoCmsToken;
+export { getDatoCmsToken };
