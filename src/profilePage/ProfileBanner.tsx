@@ -31,7 +31,7 @@ const ProfileBanner: React.FC = () => {
   return (
     <div className="profile-banner">
       <div className="banner-content">
-        <h1 className="banner-headline" id='headline'>{bannerData.headline}</h1>
+        <h1 className="banner-headline" id='headline'>Ishank Singh</h1>
         <p className="banner-description">
           {bannerData.profileSummary}
         </p>
