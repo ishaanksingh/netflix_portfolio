@@ -2,13 +2,13 @@
   position: relative;
   margin: 10px;
   cursor: pointer;
-  height: 10vw;
-  max-height: 200px;
-  max-width: 200px;
+  height: 8vw;
+  max-height: 150px;
+  max-width: 150px;
   min-height: 84px;
   min-width: 84px;
   text-decoration: none;
-  width: 10vw;
+  width: 8vw;
   border-radius: 5rem;
 }
 
