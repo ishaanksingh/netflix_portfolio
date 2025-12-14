@@ -5,16 +5,16 @@ import './ProfilePage.css';
 import ProfileBanner from './ProfileBanner';
 import TopPicksRow from './TopPicksRow';
 import ContinueWatching from './ContinueWatching';
-type ProfileType = 'Sumanth' | 'Developer' | 'Adventurer' | 'Recruiter';
+type ProfileType = 'Griz Builder' | 'Product Runner' | 'Consulting King' | 'Stalker Mode';
 
 const ProfilePage: React.FC = () => {
   const location = useLocation();
   const backgroundGif = location.state?.backgroundGif || "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"; // Default GIF
   const { profileName } = useParams<{ profileName: string }>();
 
-  const profile = ['Sumanth', 'Developer', 'Adventurer', 'Recruiter'].includes(profileName!)
+  const profile = ['Griz Builder', 'Product Runner', 'Consulting King', 'Stalker Mode'].includes(profileName!)
     ? (profileName as ProfileType)
-    : 'Sumanth';
+    : 'Griz Builder';
   return (
     <>
       <div
